@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import qrCode from '../assets/qr-code.png';
 
 interface ModalProps {
     isOpen: boolean;
@@ -47,30 +48,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
         alignItems: 'center',
     };
 
-    const modalStyle: React.CSSProperties = {
-        backgroundColor: 'var(--bg-card)',
-        padding: '40px',
-        borderRadius: '12px',
-        width: '100%',
-        maxWidth: '500px',
-        border: '1px solid var(--border)',
-        position: 'relative',
-    };
-
-    const inputStyle: React.CSSProperties = {
-        width: '100%',
-        padding: '12px',
-        background: 'var(--bg-dark)',
-        border: '1px solid var(--border)',
-        borderRadius: '8px',
-        color: 'var(--white)',
-        marginTop: '5px',
-        marginBottom: '15px'
-    };
-
     return (
         <div style={overlayStyle} onClick={(e) => e.target === e.currentTarget && onClose()}>
-            <div style={modalStyle}>
+            <div className="modal-content">
                 <button
                     onClick={onClose}
                     style={{ position: 'absolute', top: '15px', right: '20px', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}
@@ -86,40 +66,41 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
                 </div>
 
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label style={{ color: 'var(--white)', fontWeight: 500 }}>Full Name</label>
+                    <div className="form-group">
+                        <label className="form-label">Full Name</label>
                         <input
                             type="text"
                             required
-                            style={inputStyle}
+                            className="form-input"
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
                     </div>
-                    <div>
-                        <label style={{ color: 'var(--white)', fontWeight: 500 }}>Email Address</label>
+                    <div className="form-group">
+                        <label className="form-label">Email Address</label>
                         <input
                             type="email"
                             required
-                            style={inputStyle}
+                            className="form-input"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         />
                     </div>
-                    <div>
-                        <label style={{ color: 'var(--white)', fontWeight: 500 }}>Phone Number</label>
+                    <div className="form-group">
+                        <label className="form-label">Phone Number</label>
                         <input
                             type="tel"
                             required
-                            style={inputStyle}
+                            className="form-input"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         />
                     </div>
-                    <div>
-                        <label style={{ color: 'var(--white)', fontWeight: 500 }}>Message</label>
+                    <div className="form-group">
+                        <label className="form-label">Message</label>
                         <textarea
-                            style={{ ...inputStyle, height: '100px', resize: 'vertical' }}
+                            className="form-input"
+                            style={{ height: '100px', resize: 'vertical' }}
                             value={formData.message}
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         ></textarea>
@@ -129,11 +110,25 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
                         type="submit"
                         disabled={isSubmitting}
                         className="btn btn-primary btn-block"
-                        style={{ opacity: isSubmitting ? 0.7 : 1 }}
+                        style={{ opacity: isSubmitting ? 0.7 : 1, marginBottom: '20px' }}
                     >
                         {isSubmitting ? 'Submitting...' : 'Submit & Proceed'}
                     </button>
                 </form>
+
+                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '20px', textAlign: 'center' }}>
+                    <h3 style={{ color: 'var(--white)', marginBottom: '15px', fontSize: '1.1rem' }}>Or Scan to Pay Instantly</h3>
+                    <div style={{ background: 'white', padding: '10px', borderRadius: '8px', display: 'inline-block' }}>
+                        <img
+                            src={qrCode}
+                            alt="Scan & Pay"
+                            style={{ display: 'block', maxWidth: '100%', height: 'auto', maxHeight: '300px' }}
+                        />
+                    </div>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '10px' }}>
+                        Scan using any UPI app
+                    </p>
+                </div>
             </div>
         </div>
     );
