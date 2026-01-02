@@ -32,7 +32,7 @@ const Home = () => {
                             <span style={{ color: 'var(--primary)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Clients Served</span>
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                            <span style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--white)' }}>₹100Cr+</span>
+                            <span style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--white)' }}>₹1Cr+</span>
                             <span style={{ color: 'var(--primary)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Ad Spend Managed</span>
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
