@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
         setTimeout(() => {
-            alert('Message sent successfully!');
             setIsSubmitting(false);
+            setIsSuccess(true);
             (e.target as HTMLFormElement).reset();
         }, 1500);
     };
@@ -44,27 +45,55 @@ const Contact = () => {
                         </div>
 
                         <div style={{ background: 'var(--bg-card)', padding: '40px', borderRadius: '12px', border: '1px solid var(--border)' }}>
-                            <form onSubmit={handleSubmit}>
-                                <div style={{ marginBottom: '20px' }}>
-                                    <label style={{ display: 'block', marginBottom: '8px', color: 'var(--white)' }}>Full Name</label>
-                                    <input type="text" required style={{ width: '100%', padding: '12px', background: 'var(--bg-dark)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--white)' }} />
+                            {isSuccess ? (
+                                <div style={{ textAlign: 'center', padding: '40px 0' }}>
+                                    <div style={{
+                                        width: '80px',
+                                        height: '80px',
+                                        background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+                                        borderRadius: '50%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        margin: '0 auto 20px',
+                                        fontSize: '2rem',
+                                        color: 'white'
+                                    }}>
+                                        ✓
+                                    </div>
+                                    <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: 'var(--white)' }}>Message Sent!</h3>
+                                    <p style={{ color: 'var(--text-muted)' }}>Thank you for reaching out. We'll get back to you shortly.</p>
+                                    <button
+                                        onClick={() => setIsSuccess(false)}
+                                        className="btn btn-outline"
+                                        style={{ marginTop: '20px' }}
+                                    >
+                                        Send Another Message
+                                    </button>
                                 </div>
-                                <div style={{ marginBottom: '20px' }}>
-                                    <label style={{ display: 'block', marginBottom: '8px', color: 'var(--white)' }}>Email Address</label>
-                                    <input type="email" required style={{ width: '100%', padding: '12px', background: 'var(--bg-dark)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--white)' }} />
-                                </div>
-                                <div style={{ marginBottom: '20px' }}>
-                                    <label style={{ display: 'block', marginBottom: '8px', color: 'var(--white)' }}>Subject</label>
-                                    <input type="text" required style={{ width: '100%', padding: '12px', background: 'var(--bg-dark)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--white)' }} />
-                                </div>
-                                <div style={{ marginBottom: '20px' }}>
-                                    <label style={{ display: 'block', marginBottom: '8px', color: 'var(--white)' }}>Message</label>
-                                    <textarea style={{ width: '100%', padding: '12px', background: 'var(--bg-dark)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--white)', height: '100px', resize: 'vertical' }}></textarea>
-                                </div>
-                                <button type="submit" disabled={isSubmitting} className="btn btn-primary btn-block">
-                                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                                </button>
-                            </form>
+                            ) : (
+                                <form onSubmit={handleSubmit}>
+                                    <div style={{ marginBottom: '20px' }}>
+                                        <label style={{ display: 'block', marginBottom: '8px', color: 'var(--white)' }}>Full Name</label>
+                                        <input type="text" required style={{ width: '100%', padding: '12px', background: 'var(--bg-dark)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--white)' }} />
+                                    </div>
+                                    <div style={{ marginBottom: '20px' }}>
+                                        <label style={{ display: 'block', marginBottom: '8px', color: 'var(--white)' }}>Email Address</label>
+                                        <input type="email" required style={{ width: '100%', padding: '12px', background: 'var(--bg-dark)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--white)' }} />
+                                    </div>
+                                    <div style={{ marginBottom: '20px' }}>
+                                        <label style={{ display: 'block', marginBottom: '8px', color: 'var(--white)' }}>Subject</label>
+                                        <input type="text" required style={{ width: '100%', padding: '12px', background: 'var(--bg-dark)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--white)' }} />
+                                    </div>
+                                    <div style={{ marginBottom: '20px' }}>
+                                        <label style={{ display: 'block', marginBottom: '8px', color: 'var(--white)' }}>Message</label>
+                                        <textarea style={{ width: '100%', padding: '12px', background: 'var(--bg-dark)', border: '1px solid var(--border)', borderRadius: '8px', color: 'var(--white)', height: '100px', resize: 'vertical' }}></textarea>
+                                    </div>
+                                    <button type="submit" disabled={isSubmitting} className="btn btn-primary btn-block">
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                                    </button>
+                                </form>
+                            )}
                         </div>
                     </div>
                 </div>
