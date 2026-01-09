@@ -32,7 +32,7 @@ const Contact = () => {
 
                             <div style={{ marginBottom: '20px' }}>
                                 <h4 style={{ color: 'var(--primary)', marginBottom: '5px' }}>Email</h4>
-                                <p style={{ color: 'var(--text-muted)' }}>info@jasprosolutions.com</p>
+                                <p style={{ color: 'var(--text-muted)' }}>info@thirdeyecreation.com</p>
                             </div>
                             <div style={{ marginBottom: '20px' }}>
                                 <h4 style={{ color: 'var(--primary)', marginBottom: '5px' }}>Phone</h4>

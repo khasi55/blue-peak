@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from '../components/Modal';
+import { Eye, Target, Zap, Shield, Lightbulb, TrendingUp } from 'lucide-react';
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,6 +19,7 @@ const Home = () => {
         <>
             {/* Hero Section */}
             <header className="section-padding" style={{ paddingTop: '100px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+                <div className="hero-gradient-overlay"></div>
                 <div className="container-custom" style={{ position: 'relative', zIndex: 2 }}>
                     <h1 style={{ fontSize: '3.5rem', marginBottom: '20px', letterSpacing: '-1px' }}>
                         Scale Your Business With <span className="gradient-text">Precision Ads</span>
@@ -63,26 +65,24 @@ const Home = () => {
             <section className="section-padding">
                 <div className="container-custom">
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Why Choose Jaspro?</h2>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Why Choose Third Eye?</h2>
                         <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>We combine data, creativity, and technology to deliver unmatched results.</p>
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
                         {[
-                            { icon: '📊', title: 'Data-Driven Audits', desc: 'Deep dive analysis into your current ad performance to identify leaks.' },
-                            { icon: '🎯', title: 'Precision Targeting', desc: 'Reach the right audience at the right time with advanced segmentation.' },
-                            { icon: '⚡', title: 'High-Speed Execution', desc: 'Rapid campaign launches and real-time optimizations.' },
-                            { icon: '🛡️', title: 'Brand Safety', desc: 'Ensure your ads appear in safe, relevant environments.' },
-                            { icon: '💡', title: 'Creative Strategy', desc: 'Compelling visuals and copy that convert browsers into buyers.' },
-                            { icon: '📈', title: 'Scalable Growth', desc: 'Systems designed to handle increased spend while maintaining ROI.' },
+                            { icon: <Eye size={32} />, title: 'Visionary Audits', desc: 'Deep dive analysis into your brand DNA to identify growth opportunities.' },
+                            { icon: <Target size={32} />, title: 'Intuitive Targeting', desc: 'Reach your soul audience with precision-engineered segmentation.' },
+                            { icon: <Zap size={32} />, title: 'Dynamic Execution', desc: 'Rapid campaign launches backed by real-time creative optimizations.' },
+                            { icon: <Shield size={32} />, title: 'Brand Intent', desc: 'Ensuring your message resonates in the most impactful environments.' },
+                            { icon: <Lightbulb size={32} />, title: 'Creative Soul', desc: 'Compelling visuals and narratives that turn observers into believers.' },
+                            { icon: <TrendingUp size={32} />, title: 'Manifested Growth', desc: 'Scaling your vision with systems built for sustainable ROI.' },
                         ].map((feature, idx) => (
                             <div key={idx} style={{
-                                background: 'var(--bg-card)',
                                 padding: '30px',
-                                borderRadius: '12px',
-                                border: '1px solid var(--border)',
-                                transition: 'all 0.3s ease'
-                            }} className="hover:translate-y-[-5px]">
-                                <div style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{feature.icon}</div>
+                                borderRadius: '16px',
+                                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                            }} className="glass-card hover-glow hover:translate-y-[-8px]">
+                                <div style={{ color: 'var(--primary)', marginBottom: '20px' }}>{feature.icon}</div>
                                 <h3 style={{ marginBottom: '10px', fontSize: '1.25rem' }}>{feature.title}</h3>
                                 <p style={{ color: 'var(--text-muted)' }}>{feature.desc}</p>
                             </div>
@@ -123,21 +123,21 @@ const Home = () => {
                         <PricingCard
                             title="Full Ad Management"
                             slogan="Control your campaigns like a pro."
-                            price="22,000"
+                            price="1,15,000"
                             features={['Campaign Strategy', 'A/B Testing', 'Weekly Optimization', 'Monthly Reporting']}
                             btnText="CHOOSE CONTROL"
                             btnType="outline"
-                            onSelect={() => openModal('Full Ad Management', '22000')}
+                            onSelect={() => openModal('Full Ad Management', '115000')}
                         />
                         {/* Scale */}
                         <PricingCard
                             title="High-Volume Ad Ops"
                             slogan="Strategies built for business scaling."
-                            price="37,000"
+                            price="2,30,000"
                             features={['Multi-Channel Strategy', 'Advanced Automation', 'Dedicated Account Manager', 'Priority Support']}
                             btnText="CHOOSE SCALE"
                             btnType="outline"
-                            onSelect={() => openModal('High-Volume Ad Ops', '37000')}
+                            onSelect={() => openModal('High-Volume Ad Ops', '230000')}
                         />
                     </div>
                 </div>

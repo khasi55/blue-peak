@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import qrCode from '../assets/qr-code.png';
+import qrCode from '../assets/upi-qr.png';
 
 interface ModalProps {
     isOpen: boolean;
@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
 
     return (
         <div style={overlayStyle} onClick={(e) => e.target === e.currentTarget && handleClose()}>
-            <div className="modal-content">
+            <div className="modal-content glass-card" style={{ border: '1px solid rgba(147, 51, 234, 0.3)', boxShadow: '0 0 40px rgba(0,0,0,0.5)' }}>
                 <button
                     onClick={handleClose}
                     style={{ position: 'absolute', top: '15px', right: '20px', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}
@@ -154,11 +154,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
 
                 <div style={{ borderTop: '1px solid var(--border)', paddingTop: '20px', textAlign: 'center' }}>
                     <h3 style={{ color: 'var(--white)', marginBottom: '15px', fontSize: '1.1rem' }}>Or Scan to Pay Instantly</h3>
-                    <div style={{ background: 'white', padding: '10px', borderRadius: '8px', display: 'inline-block' }}>
+                    <div style={{ background: 'white', padding: '15px', borderRadius: '16px', display: 'inline-block', boxShadow: '0 0 20px rgba(147, 51, 234, 0.4)' }}>
                         <img
                             src={qrCode}
                             alt="Scan & Pay"
-                            style={{ display: 'block', maxWidth: '100%', height: 'auto', maxHeight: '300px' }}
+                            style={{ display: 'block', maxWidth: '100%', height: 'auto', maxHeight: '350px', borderRadius: '8px' }}
                         />
                     </div>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '10px' }}>

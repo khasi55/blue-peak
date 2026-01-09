@@ -44,16 +44,23 @@ const Navbar = () => {
             <nav style={navbarStyle}>
                 <div className="container-custom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Link to="/" style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
                         fontSize: '1.5rem',
                         fontWeight: 700,
                         fontFamily: 'Outfit, sans-serif',
-                        background: 'var(--gradient-main)',
-                        WebkitBackgroundClip: 'text',
-                        backgroundClip: 'text',
-                        color: 'transparent',
                         textDecoration: 'none'
                     }}>
-                        Jaspro Solutions
+                        <img src="/logo.png" alt="Logo" style={{ height: '40px', width: 'auto' }} />
+                        <span style={{
+                            background: 'var(--gradient-main)',
+                            WebkitBackgroundClip: 'text',
+                            backgroundClip: 'text',
+                            color: 'transparent'
+                        }}>
+                            Third eye creation
+                        </span>
                     </Link>
 
                     {/* Desktop Menu */}
