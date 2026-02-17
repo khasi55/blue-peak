@@ -11,7 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 const Footer = () => (
     <footer style={{ background: 'var(--bg-darker)', padding: '80px 0 30px', borderTop: '1px solid var(--border)', marginTop: 'auto' }}>
         <div className="container-custom" style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-            <p>&copy; 2024 Blue Peak Impex. All rights reserved.</p>
+            <p>&copy; 2026 Blue Peak Impex. All rights reserved.</p>
         </div>
     </footer>
 );
