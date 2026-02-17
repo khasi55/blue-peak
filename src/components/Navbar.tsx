@@ -52,14 +52,14 @@ const Navbar = () => {
                         fontFamily: 'Outfit, sans-serif',
                         textDecoration: 'none'
                     }}>
-                        <img src="/logo.png" alt="Logo" style={{ height: '40px', width: 'auto' }} />
+                        <img src="/logo.jpg" alt="Logo" style={{ height: '40px', width: 'auto' }} />
                         <span style={{
                             background: 'var(--gradient-main)',
                             WebkitBackgroundClip: 'text',
                             backgroundClip: 'text',
                             color: 'transparent'
                         }}>
-                            Third eye creation
+                            Blue Peak Impex
                         </span>
                     </Link>
 

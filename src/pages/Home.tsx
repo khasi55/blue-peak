@@ -65,7 +65,7 @@ const Home = () => {
             <section className="section-padding">
                 <div className="container-custom">
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Why Choose Third Eye?</h2>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Why Choose Blue Peak?</h2>
                         <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>We combine data, creativity, and technology to deliver unmatched results.</p>
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>

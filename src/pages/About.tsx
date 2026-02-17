@@ -8,7 +8,7 @@ const About = () => {
         <div className="pt-20">
             <header className="section-padding text-center">
                 <div className="container-custom">
-                    <h1 style={{ fontSize: '3.5rem', marginBottom: '20px' }}>About <span className="gradient-text">Third eye creation</span></h1>
+                    <h1 style={{ fontSize: '3.5rem', marginBottom: '20px' }}>About <span className="gradient-text">Blue Peak Impex</span></h1>
                     <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)' }}>We are a team of data scientists, creatives, and strategists dedicated to scaling businesses.</p>
                 </div>
             </header>
@@ -34,7 +34,7 @@ const About = () => {
                         <h2 style={{ fontSize: '2.5rem' }}>Our Story</h2>
                     </div>
                     <div style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-muted)', textAlign: 'center' }}>
-                        <p style={{ marginBottom: '20px' }}>Founded in 2020, Third eye creation was born from a desire to blend visionary creativity with deep-tech data. We believe that true business scaling happens when you see what others miss—the hidden patterns in consumer behavior and the untapped potential of soulful brand narratives.</p>
+                        <p style={{ marginBottom: '20px' }}>Founded in 2020, Blue Peak Impex was born from a desire to blend visionary creativity with deep-tech data. We believe that true business scaling happens when you see what others miss—the hidden patterns in consumer behavior and the untapped potential of soulful brand narratives.</p>
                         <p>We built the Visionary Framework, our proprietary methodology, to bridge the gap between creative intuition and bottom-line results. Today, we empower brands across the globe to manifest their full digital potential.</p>
                     </div>
                 </div>

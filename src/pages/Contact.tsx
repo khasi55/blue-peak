@@ -32,15 +32,20 @@ const Contact = () => {
 
                             <div style={{ marginBottom: '20px' }}>
                                 <h4 style={{ color: 'var(--primary)', marginBottom: '5px' }}>Email</h4>
-                                <p style={{ color: 'var(--text-muted)' }}>info@thirdeyecreation.com</p>
+                                <p style={{ color: 'var(--text-muted)' }}>info@bluepeakimpex.com</p>
                             </div>
                             <div style={{ marginBottom: '20px' }}>
                                 <h4 style={{ color: 'var(--primary)', marginBottom: '5px' }}>Phone</h4>
-                                <p style={{ color: 'var(--text-muted)' }}>+91 98765 43210</p>
+                                <p style={{ color: 'var(--text-muted)' }}>+91 9625657201</p>
                             </div>
                             <div style={{ marginBottom: '20px' }}>
                                 <h4 style={{ color: 'var(--primary)', marginBottom: '5px' }}>Address</h4>
-                                <p style={{ color: 'var(--text-muted)' }}>123 Business Park, Tech City<br />Bangalore, Karnataka, India</p>
+                                <p style={{ color: 'var(--text-muted)' }}>
+                                    Office No 423, 4th Floor, West End Mall,<br />
+                                    Najafgarh Road, Janakpuri District Centre,<br />
+                                    New Delhi, Delhi - 110058<br />
+                                    <span style={{ fontSize: '0.9rem', fontStyle: 'italic' }}>(Nearby West End Mall)</span>
+                                </p>
                             </div>
                         </div>
 
