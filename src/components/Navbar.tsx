@@ -10,11 +10,8 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Home', path: '/' },
-        { name: 'About Us', path: '/about' },
-        { name: 'Services', path: '/services' },
-        { name: 'Case Studies', path: '/case-studies' },
-        { name: 'Blog', path: '/blog' },
-        { name: 'Careers', path: '/careers' },
+        { name: 'Products', path: '/services' },
+        { name: 'About', path: '/about' },
         { name: 'Contact', path: '/contact' },
     ];
 
@@ -25,18 +22,21 @@ const Navbar = () => {
         top: 0,
         left: 0,
         width: '100%',
-        backgroundColor: 'rgba(15, 23, 42, 0.8)',
-        backdropFilter: 'blur(10px)',
+        backgroundColor: 'rgba(2, 6, 23, 0.8)',
+        backdropFilter: 'blur(12px)',
         zIndex: 1000,
-        padding: '20px 0',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+        padding: '16px 0',
+        borderBottom: '1px solid var(--border)',
     };
 
     const linkStyle = (active: boolean): React.CSSProperties => ({
-        color: active ? 'var(--primary)' : 'var(--text-muted)',
-        fontWeight: 500,
+        color: active ? 'var(--white)' : 'var(--text-muted)',
+        fontWeight: active ? 600 : 500,
+        fontSize: '0.9rem',
         textDecoration: 'none',
-        transition: 'color 0.3s ease',
+        transition: 'all 0.3s ease',
+        position: 'relative',
+        padding: '4px 0'
     });
 
     return (
@@ -46,25 +46,25 @@ const Navbar = () => {
                     <Link to="/" style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '12px',
-                        fontSize: '1.5rem',
+                        gap: '10px',
+                        fontSize: '1.25rem',
                         fontWeight: 700,
                         fontFamily: 'Outfit, sans-serif',
                         textDecoration: 'none'
                     }}>
-                        <img src="/logo.jpg" alt="Logo" style={{ height: '40px', width: 'auto' }} />
+                        <img src="/logo.jpg" alt="Logo" style={{ height: '32px', width: 'auto', borderRadius: '4px' }} />
                         <span style={{
                             background: 'var(--gradient-main)',
                             WebkitBackgroundClip: 'text',
                             backgroundClip: 'text',
                             color: 'transparent'
                         }}>
-                            Blue Peak Impex
+                            Blue Peak
                         </span>
                     </Link>
 
                     {/* Desktop Menu */}
-                    <div style={{ display: 'flex', gap: '30px' }} className="hidden md:flex">
+                    <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }} className="hidden md:flex">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -72,22 +72,33 @@ const Navbar = () => {
                                 style={linkStyle(isActive(link.path))}
                             >
                                 {link.name}
+                                {isActive(link.path) && (
+                                    <span style={{
+                                        position: 'absolute',
+                                        bottom: '-4px',
+                                        left: 0,
+                                        width: '100%',
+                                        height: '2px',
+                                        background: 'var(--gradient-main)',
+                                        borderRadius: '2px'
+                                    }}></span>
+                                )}
                             </Link>
                         ))}
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                        <button className="btn btn-primary hidden md:inline-flex" onClick={() => setIsModalOpen(true)}>
-                            Get Started
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <button className="btn btn-primary" style={{ padding: '8px 20px', fontSize: '0.85rem' }} onClick={() => setIsModalOpen(true)}>
+                            Join Now
                         </button>
 
                         {/* Mobile Menu Toggle */}
                         <button
                             className="md:hidden"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer' }}
+                            style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', padding: '4px' }}
                         >
-                            {isMobileMenuOpen ? <X /> : <Menu />}
+                            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                         </button>
                     </div>
                 </div>
@@ -100,11 +111,12 @@ const Navbar = () => {
                         left: 0,
                         width: '100%',
                         backgroundColor: 'var(--bg-dark)',
-                        padding: '20px',
+                        padding: '24px',
                         borderBottom: '1px solid var(--border)',
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '15px'
+                        gap: '20px',
+                        boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
                     }}>
                         {navLinks.map((link) => (
                             <Link
@@ -117,7 +129,7 @@ const Navbar = () => {
                             </Link>
                         ))}
                         <button className="btn btn-primary btn-block" onClick={() => { setIsModalOpen(true); setIsMobileMenuOpen(false); }}>
-                            Get Started
+                            Join Now
                         </button>
                     </div>
                 )}
