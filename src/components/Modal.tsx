@@ -55,16 +55,30 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
 
     return (
         <div style={overlayStyle} onClick={(e) => e.target === e.currentTarget && handleClose()}>
-            <div className="modal-content glass-card" style={{ border: '1px solid rgba(37, 99, 235, 0.3)', boxShadow: '0 0 40px rgba(0,0,0,0.5)' }}>
+            <div
+                className="glass-card"
+                style={{
+                    border: '1px solid rgba(37, 99, 235, 0.3)',
+                    boxShadow: '0 0 40px rgba(0,0,0,0.5)',
+                    width: '90%',
+                    maxWidth: '450px',
+                    padding: '40px',
+                    borderRadius: 'var(--radius-lg)',
+                    position: 'relative',
+                    background: 'rgba(2, 6, 23, 0.98)', /* Very dark solid background to avoid overlap issues */
+                    maxHeight: '90vh',
+                    overflowY: 'auto'
+                }}
+            >
                 <button
                     onClick={handleClose}
-                    style={{ position: 'absolute', top: '15px', right: '20px', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}
+                    style={{ position: 'absolute', top: '20px', right: '20px', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', zIndex: 10 }}
                 >
                     <X size={24} />
                 </button>
 
                 {isSuccess ? (
-                    <div style={{ textAlign: 'center', padding: '40px 0' }}>
+                    <div style={{ textAlign: 'center', padding: '20px 0' }}>
                         <div style={{
                             width: '80px',
                             height: '80px',
@@ -92,16 +106,16 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
                     </div>
                 ) : (
                     <>
-                        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-                            <h2 style={{ color: 'var(--primary)', marginBottom: '10px', fontSize: '1.5rem' }}>Get Started</h2>
-                            <p style={{ color: 'var(--text-muted)' }}>
+                        <div style={{ textAlign: 'center', marginBottom: '30px', padding: '0 10px' }}>
+                            <h2 style={{ color: 'var(--primary)', marginBottom: '10px', fontSize: '1.75rem', fontWeight: 'bold' }}>Get Started</h2>
+                            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.4' }}>
                                 {plan ? `Selected Plan: ${plan} (${amount})` : 'Please fill the form to proceed.'}
                             </p>
                         </div>
 
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label className="form-label">Full Name</label>
+                        <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
+                            <div style={{ marginBottom: '20px' }}>
+                                <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: '500' }}>Full Name</label>
                                 <input
                                     type="text"
                                     required
@@ -110,8 +124,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label className="form-label">Email Address</label>
+                            <div style={{ marginBottom: '20px' }}>
+                                <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: '500' }}>Email Address</label>
                                 <input
                                     type="email"
                                     required
@@ -120,8 +134,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label className="form-label">Phone Number</label>
+                            <div style={{ marginBottom: '20px' }}>
+                                <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: '500' }}>Phone Number</label>
                                 <input
                                     type="tel"
                                     required
@@ -130,8 +144,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
                                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label className="form-label">Message</label>
+                            <div style={{ marginBottom: '24px' }}>
+                                <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: '500' }}>Message</label>
                                 <textarea
                                     className="form-input"
                                     style={{ height: '100px', resize: 'vertical' }}
@@ -143,8 +157,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, plan, amount }) => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="btn btn-primary btn-block"
-                                style={{ opacity: isSubmitting ? 0.7 : 1, marginBottom: '20px' }}
+                                className="btn btn-primary"
+                                style={{ width: '100%', opacity: isSubmitting ? 0.7 : 1, padding: '14px', fontSize: '1rem' }}
                             >
                                 {isSubmitting ? 'Submitting...' : 'Submit & Proceed'}
                             </button>

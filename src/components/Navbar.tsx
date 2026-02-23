@@ -64,7 +64,7 @@ const Navbar = () => {
                     </Link>
 
                     {/* Desktop Menu */}
-                    <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }} className="hidden md:flex">
+                    <div style={{ display: 'none', gap: '32px', alignItems: 'center' }} className="md:flex">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -96,9 +96,9 @@ const Navbar = () => {
                         <button
                             className="md:hidden"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', padding: '4px' }}
+                            style={{ display: 'flex', background: 'none', border: 'none', color: 'white', cursor: 'pointer', padding: '4px' }}
                         >
-                            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
                 </div>

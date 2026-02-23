@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Tag, ShoppingCart } from 'lucide-react';
 import Modal from '../components/Modal';
 
 const Products = () => {
@@ -12,65 +13,37 @@ const Products = () => {
     };
 
     const products = [
-        {
-            title: 'Neural Lead Bot',
-            tag: 'SOFTWARE',
-            desc: 'Advanced AI lead extraction and automated outreach system. Scale your prospecting with zero manual effort.',
-            price: '8,499',
-            img: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-            features: ['AI Pattern Matching', 'Multi-channel Outreach', 'Real-time Analytics'],
-            popular: true
-        },
-        {
-            title: 'The Modern Tycoon',
-            tag: 'EBOOK',
-            desc: 'The definitive blueprint for building a high-revenue digital company in 2026. Zero fluff, pure strategy.',
-            price: '1,499',
-            img: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
-            features: ['Revenue Scaling Framework', 'Hiring Systems', 'Tax Optimization']
-        },
-        {
-            title: 'SaaS Foundry Suite',
-            tag: 'SOFTWARE',
-            desc: 'Launch your own software products in days, not months. The ultimate production-ready boilerplate.',
-            price: '12,999',
-            img: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-            features: ['Payment Integration', 'Auth & User Mgmt', 'Cloud Deployment Ready']
-        },
-        {
-            title: 'Psychology of Closing',
-            tag: 'EBOOK',
-            desc: 'Master the cognitive triggers that drive high-ticket sales. A masterclass in verbal and written persuasion.',
-            price: '2,999',
-            img: 'https://images.pexels.com/photos/7681092/pexels-photo-7681092.jpeg?auto=compress&cs=tinysrgb&w=800',
-            features: ['50+ Cognitive Triggers', 'Objection Handling', 'Dark Patterns Defense']
-        },
-        {
-            title: 'LinkedIn Growth Auto',
-            tag: 'SOFTWARE',
-            desc: 'Automate your thought leadership. Schedule, interact, and grow your network while you sleep.',
-            price: '3,999',
-            img: 'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=800',
-            features: ['AI Ghostwriter', 'Engagement Pod Analysis', 'CRM Sync']
-        },
-        {
-            title: 'Ad Arbitrage Secrets',
-            tag: 'EBOOK',
-            desc: 'Learn how to buy low-cost traffic and flip it for massive profits using data-driven arbitrage techniques.',
-            price: '1,999',
-            img: 'https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&w=800',
-            features: ['Platform Arbitrage', 'Creative Testing Ops', 'ROI Calculator']
-        }
+        { title: 'Automatic call distribution software', tag: 'Software', price: '2,700', logo: 'ACD' },
+        { title: 'Call accounting software', tag: 'Software', price: '3,300', logo: 'CAS' },
+        { title: 'Call center scripting software', tag: 'Software', price: '4,600', logo: 'CCS' },
+        { title: 'Call queue management software', tag: 'Software', price: '3,300', logo: 'CQM' },
+        { title: 'Call scoring software', tag: 'Software', price: '1,700', logo: 'CSS' },
+        { title: 'Dial tone multi-frequency software', tag: 'Software', price: '2,700', logo: 'DTMF' },
+        { title: 'IVR software', tag: 'Software', price: '3,200', logo: 'IVR' },
+        { title: 'Speech analytics software', tag: 'Software', price: '1,100', logo: 'SAS' },
+        { title: 'Broken link analysis and reporting 2CHANNEL', tag: 'Software', price: '2,000', logo: 'BLA' },
+        { title: 'Call center tracking software', tag: 'Software', price: '5,300', logo: 'CCT' },
+        { title: 'Call recording software 4/8 CHANNEL', tag: 'Software', price: '7,900', logo: 'CRS' },
+        { title: 'Call routing software (ACD) 4 CHANNEL', tag: 'Software', price: '2,900', logo: 'CRS' },
+        { title: 'Cloud-based calling software (2/4/8 CHANNEL)', tag: 'Software', price: '8,600', logo: 'CBC' },
+        { title: 'Computer telephony integration (CTI) software', tag: 'Software', price: '7,300', logo: 'CTI' },
+        { title: 'CRM integration software solutions 8 CHANNEL', tag: 'Software', price: '11,900', logo: 'CRM' },
+        { title: 'Help desk solutions', tag: 'Software', price: '2,100', logo: 'HDS' },
+        { title: 'Interactive Voice Response (IVR) (2/4/8 CHANNEL)', tag: 'Software', price: '2,800', logo: 'IVR' },
+        { title: 'PBX Phone systems', tag: 'Software', price: '8,300', logo: 'PBX' },
+        { title: 'Predictive dialers', tag: 'Software', price: '12,500', logo: 'PD' },
+        { title: 'Reporting tools', tag: 'Software', price: '7,500', logo: 'RT' },
+        { title: 'Unified Communications software', tag: 'Software', price: '11,900', logo: 'UCS' },
+        { title: 'Video conferencing software 4/8 CHANNEL', tag: 'Software', price: '13,600', logo: 'VCS' }
     ];
 
     const filteredProducts = activeCategory === 'All'
         ? products
-        : products.filter(p => p.tag === activeCategory.toUpperCase());
+        : products.filter(p => p.tag === activeCategory);
 
     return (
-        <div className="pt-20" style={{ minHeight: '100vh', background: 'var(--bg-dark)' }}>
+        <div className="pt-20" style={{ minHeight: '100vh', background: '#050505' }}>
             <header className="section-padding" style={{ position: 'relative', overflow: 'hidden' }}>
-                <div className="hero-glow-sphere" style={{ top: '-10%', left: '50%', width: '1000px', height: '1000px' }}></div>
                 <div className="container-custom" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
                     <div style={{
                         display: 'inline-flex',
@@ -87,7 +60,7 @@ const Products = () => {
                     }}>
                         PREMIUM DIGITAL ASSETS
                     </div>
-                    <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '20px', fontWeight: 800 }}>
+                    <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '20px', fontWeight: 800 }}>
                         Scale Faster with <span className="gradient-text">Top-Tier Tools</span>
                     </h1>
                     <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
@@ -95,8 +68,8 @@ const Products = () => {
                     </p>
 
                     {/* Category Filter */}
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '48px' }}>
-                        {['All', 'Ebooks', 'Software'].map((cat) => (
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '48px', overflowX: 'auto', paddingBottom: '10px' }}>
+                        {['All', 'Ebooks', 'Software', 'Gaming'].map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
@@ -104,13 +77,14 @@ const Products = () => {
                                     padding: '10px 24px',
                                     borderRadius: '100px',
                                     border: '1px solid',
-                                    borderColor: activeCategory === cat ? 'var(--primary)' : 'rgba(255,255,255,0.1)',
-                                    background: activeCategory === cat ? 'var(--primary)' : 'rgba(255,255,255,0.03)',
+                                    borderColor: activeCategory === cat ? 'none' : 'rgba(255,255,255,0.0)',
+                                    background: activeCategory === cat ? 'var(--primary)' : 'transparent',
                                     color: activeCategory === cat ? 'white' : 'var(--text-muted)',
-                                    fontSize: '0.9rem',
+                                    fontSize: '1rem',
                                     fontWeight: 600,
                                     cursor: 'pointer',
-                                    transition: 'all 0.3s ease'
+                                    transition: 'all 0.3s ease',
+                                    whiteSpace: 'nowrap'
                                 }}
                             >
                                 {cat}
@@ -120,72 +94,86 @@ const Products = () => {
                 </div>
             </header>
 
-            <section className="section-padding" style={{ position: 'relative', zIndex: 2, paddingTop: 0 }}>
+            <section className="section-padding" style={{ position: 'relative', zIndex: 2, paddingTop: '40px' }}>
                 <div className="container-custom">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
                         {filteredProducts.map((product, idx) => (
-                            <div key={idx} className="glass-card bento-item" style={{
+                            <div key={idx} style={{
+                                background: '#111111',
+                                border: '1px solid rgba(255, 204, 0, 0.5)',
+                                borderRadius: '16px',
+                                padding: '24px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 height: '100%',
+                                marginBottom: '20px',
                                 transition: 'transform 0.4s ease, box-shadow 0.4s ease'
                             }}>
-                                <div style={{ position: 'relative', height: '260px', overflow: 'hidden' }}>
-                                    <img src={product.img} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="product-image-hover" />
-                                    <div style={{
-                                        position: 'absolute',
-                                        top: '20px',
-                                        left: '20px',
-                                        padding: '6px 14px',
-                                        background: 'rgba(2, 6, 23, 0.8)',
-                                        backdropFilter: 'blur(10px)',
-                                        borderRadius: '100px',
-                                        fontSize: '0.8rem',
-                                        fontWeight: 800,
-                                        color: 'var(--primary)',
-                                        border: '1px solid rgba(59, 130, 246, 0.4)',
-                                        letterSpacing: '0.5px'
-                                    }}>
-                                        {product.tag}
-                                    </div>
-                                    {product.popular && (
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: '20px',
-                                            right: '20px',
-                                            padding: '6px 14px',
-                                            background: 'var(--gradient-main)',
-                                            borderRadius: '100px',
-                                            fontSize: '0.8rem',
-                                            fontWeight: 800,
-                                            color: 'white',
-                                            boxShadow: '0 10px 20px rgba(59, 130, 246, 0.3)'
-                                        }}>
-                                            MOST POPULAR
-                                        </div>
-                                    )}
+                                <div style={{
+                                    background: '#0a0a0a',
+                                    height: '240px',
+                                    borderRadius: '12px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    marginBottom: '24px'
+                                }}>
+                                    <h2 style={{ fontSize: '3.5rem', fontWeight: 900, color: 'white', letterSpacing: '2px' }}>
+                                        {product.logo}
+                                    </h2>
                                 </div>
-                                <div style={{ padding: '36px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                    <h3 style={{ marginBottom: '16px', fontSize: '1.85rem', fontWeight: 700 }}>{product.title}</h3>
-                                    <p style={{ color: 'var(--text-muted)', marginBottom: '28px', fontSize: '1.1rem', lineHeight: 1.6 }}>{product.desc}</p>
+                                <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                    <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: 'white', marginBottom: '8px', lineHeight: 1.3 }}>
+                                        {product.title}
+                                    </h3>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '24px' }}>
+                                        Category : {product.tag}
+                                    </p>
 
-                                    <div style={{ marginBottom: '40px' }}>
-                                        {product.features.map((f, i) => (
-                                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.8)' }}>
-                                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--primary)', boxShadow: '0 0 10px var(--primary)' }}></div>
-                                                {f}
-                                            </div>
-                                        ))}
+                                    <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'white', marginBottom: '24px' }}>
+                                        ₹ {product.price}
                                     </div>
 
-                                    <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                                        <div style={{ fontSize: '1.8rem', fontWeight: 800 }}>₹{product.price}</div>
+                                    <div style={{ marginTop: 'auto', display: 'flex', gap: '12px' }}>
                                         <button
-                                            className="btn btn-primary"
-                                            style={{ padding: '12px 32px', borderRadius: '12px', fontWeight: 700 }}
+                                            style={{
+                                                flex: 1,
+                                                background: '#facc15',
+                                                color: '#000',
+                                                border: 'none',
+                                                padding: '12px 16px',
+                                                borderRadius: '30px',
+                                                fontWeight: 600,
+                                                fontSize: '0.95rem',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                gap: '8px',
+                                                cursor: 'pointer'
+                                            }}
                                             onClick={() => openModal(product.title, product.price)}
                                         >
-                                            Get Access
+                                            <Tag size={18} /> Buy Now
+                                        </button>
+                                        <button
+                                            style={{
+                                                flex: 1,
+                                                background: 'rgba(255,255,255,0.1)',
+                                                color: 'white',
+                                                border: 'none',
+                                                padding: '12px 16px',
+                                                borderRadius: '30px',
+                                                fontWeight: 600,
+                                                fontSize: '0.95rem',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                gap: '8px',
+                                                cursor: 'pointer'
+                                            }}
+                                            onClick={() => openModal(product.title, product.price)}
+                                        >
+                                            <ShoppingCart size={18} /> Add to card
                                         </button>
                                     </div>
                                 </div>
